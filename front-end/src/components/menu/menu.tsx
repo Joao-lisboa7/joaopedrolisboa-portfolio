@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 import './menu.css';
 
 export interface MenuItem {
@@ -44,9 +45,25 @@ export function GameMenu({ items, title, subtitle }: GameMenuProps) {
                 </div>
                 
                 {item.href ? (
-                  <a href={item.href} className="menu-item-text" onClick={item.onClick}>
-                    {item.label}
-                  </a>
+                  item.href.startsWith('http') ? (
+                    <a
+                      href={item.href}
+                      className="menu-item-text"
+                      onClick={item.onClick}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className="menu-item-text"
+                      onClick={item.onClick}
+                    >
+                      {item.label}
+                    </Link>
+                  )
                 ) : (
                   <button className="menu-item-text" onClick={item.onClick}>
                     {item.label}

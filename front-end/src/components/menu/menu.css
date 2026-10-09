@@ -9,7 +9,7 @@
      se o projeto tiver uma fonte específica importada, ela assumirá aqui. */
   font-family: 'Cinzel', 'Trajan Pro', 'Baskerville', 'Times New Roman', serif;
   color: #c2c0bd;
-  padding: 1.5rem 2rem; /* Altura diminuída */
+  padding: 1rem 2rem; /* Altura diminuída */
   
   /* ADICIONADO: Fundo translúcido escuro (Glassmorphism) e centralização na página */
   position: absolute;
@@ -17,7 +17,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
-  max-width: 800px; /* Largura aumentada */
+  max-width: 700px; /* Largura aumentada */
   background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -46,7 +46,7 @@
 }
 
 .game-menu-subtitle {
-  font-size: 0.7rem; /* Tamanho do subtitulo reduzido */
+  font-size: 0.9rem; /* Tamanho do subtitulo reduzido */
   letter-spacing: 6px;
   text-transform: uppercase;
   color: #a89f91;
@@ -97,7 +97,7 @@
   text-decoration: none;
   color: #8f8a84; /* Cinza metálico apagado no estado normal */
   font-family: inherit;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   letter-spacing: 4px;
   text-transform: uppercase;
   cursor: pointer;
