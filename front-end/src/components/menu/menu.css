@@ -1,0 +1,210 @@
+/* Fontes e estilo geral do container */
+.game-menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  /* Fonte serifada clássica remete a jogos épicos, 
+     se o projeto tiver uma fonte específica importada, ela assumirá aqui. */
+  font-family: 'Cinzel', 'Trajan Pro', 'Baskerville', 'Times New Roman', serif;
+  color: #c2c0bd;
+  padding: 1.5rem 2rem; /* Altura diminuída */
+  
+  /* ADICIONADO: Fundo translúcido escuro (Glassmorphism) e centralização na página */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px; /* Largura aumentada */
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Header opcional do menu (Título principal) */
+.game-menu-header {
+  text-align: center;
+  margin-bottom: 2rem; /* Margem diminuída */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-menu-title {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem); /* Tamanho do título reduzido */
+  letter-spacing: px;
+  text-transform: uppercase;
+  color: #e5dccf; /* Cor estilo "Osso" comum em souls-likes */
+  margin: 0;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+}
+
+.game-menu-subtitle {
+  font-size: 0.7rem; /* Tamanho do subtitulo reduzido */
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #a89f91;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Linha divisória com gradiente */
+.game-menu-divider {
+  width: 250px;
+  height: 1px;
+  background: radial-gradient(circle, rgba(230, 126, 34, 0.8) 0%, transparent 100%);
+  margin-top: 1rem;
+  opacity: 0.8;
+  box-shadow: 0 0 8px rgba(230, 126, 34, 0.4);
+}
+
+/* Navegação e lista */
+.game-menu-nav {
+  width: 100%;
+  max-width: 600px;
+}
+
+.game-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* Item do menu: container flex que se ajusta ao texto */
+.game-menu-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.8rem 1rem;
+}
+
+/* Texto do botão ou âncora */
+.menu-item-text {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #8f8a84; /* Cinza metálico apagado no estado normal */
+  font-family: inherit;
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0 1rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  outline: none;
+}
+
+/* Linhas brilhantes superior e inferior */
+.game-menu-item::before,
+.game-menu-item::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: radial-gradient(circle, #f9a826 0%, #e67e22 50%, transparent 100%);
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+  opacity: 0;
+  z-index: 1;
+}
+
+.game-menu-item::before {
+  top: 0;
+}
+
+.game-menu-item::after {
+  bottom: 0;
+}
+
+/* ===== EFEITOS DE HOVER (Quando selecionado/em foco) ===== */
+.game-menu-item.hovered .menu-item-text,
+.game-menu-item:focus-within .menu-item-text {
+  color: #ffecd2; /* Branco amarelado brilhante */
+  letter-spacing: 8px; /* Texto se expande levemente */
+  text-shadow: 
+    0 0 10px rgba(230, 126, 34, 0.8),
+    0 0 20px rgba(211, 84, 0, 0.5),
+    0 4px 10px rgba(0, 0, 0, 1);
+  transform: scale(1.05); /* Leve aumento */
+}
+
+/* As linhas se expandem além do texto */
+.game-menu-item.hovered::before,
+.game-menu-item.hovered::after,
+.game-menu-item:focus-within::before,
+.game-menu-item:focus-within::after {
+  width: 120%; 
+  opacity: 1;
+  box-shadow: 0 0 8px rgba(230, 126, 34, 0.6);
+}
+
+/* Decoradores laterais (as faíscas nas pontas do texto) */
+.menu-item-decorator {
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  z-index: 3;
+}
+
+.left-decorator {
+  transform: translateX(15px);
+}
+
+.right-decorator {
+  transform: translateX(-15px);
+}
+
+/* As faíscas deslizam para fora quando o item é focado */
+.game-menu-item.hovered .left-decorator,
+.game-menu-item:focus-within .left-decorator {
+  opacity: 1;
+  transform: translateX(-10px);
+}
+
+.game-menu-item.hovered .right-decorator,
+.game-menu-item:focus-within .right-decorator {
+  opacity: 1;
+  transform: translateX(10px);
+}
+
+/* Formato de diamante dourado (a faísca) */
+.spark {
+  width: 6px;
+  height: 6px;
+  background-color: #ffecd2;
+  transform: rotate(45deg); /* Transforma o quadrado em diamante */
+  box-shadow: 
+    0 0 10px 2px rgba(230, 126, 34, 0.9),
+    0 0 4px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Prevenção de motion sickness */
+@media (prefers-reduced-motion: reduce) {
+  .menu-item-text {
+    transition: none;
+  }
+  .game-menu-item::before,
+  .game-menu-item::after {
+    transition: opacity 0.2s ease;
+  }
+}
+
