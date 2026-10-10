@@ -1,0 +1,35 @@
+/* src/styles/globals.css */
+/* Global CSS variables and utility classes shared across the app */
+@layer base {
+  :root {
+    /* Font families */
+    --font-title: 'Cinzel', 'Trajan Pro', 'Baskerville', 'Times New Roman', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Color palette – adapted from the game menu theme */
+    --color-primary: #e67e22;   /* orange‑red for highlights */
+    --color-primary-dark: #c6581f;
+    --color-bg-overlay: rgba(0, 0, 0, 0.45);
+    --color-text-primary: #e5dccf; /* bone‑like title color */
+    --color-text-secondary: #a89f91; /* subtitle */
+    --color-muted: #8f8a84; /* menu item default */
+  }
+
+  /* Utility classes that reuse the variables – Tailwind `@apply` can be used in components */
+  .title-font {
+    @apply font-bold uppercase tracking-[0.2em] drop-shadow-md;
+    font-family: var(--font-title);
+    color: var(--color-text-primary);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .subtitle-font {
+    font-family: var(--font-title);
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}
+

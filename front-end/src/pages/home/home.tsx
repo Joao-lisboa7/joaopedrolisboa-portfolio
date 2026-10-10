@@ -1,4 +1,5 @@
 import './home.css';
+import Navbar from '../../components/navbar/navbar';
 import GameMenu from '../../components/menu/Menu';
 
 function Home (){
@@ -20,6 +21,8 @@ function Home (){
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src="/video/Faiscas-de-Fogo-SnapYT.App.mp4"
       />
+
+      <Navbar title="Home"/>
 
       <GameMenu
         title="João Pedro Lisboa Brito"
