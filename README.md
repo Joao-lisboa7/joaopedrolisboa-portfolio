@@ -373,7 +373,7 @@ cd back-end
 
 | Demonstração 1 | Demonstração 2 | Demonstração 3 | Demonstração 4 |
 |----------------|----------------|----------------|----------------|
-| ![alt text](image-4.png) | ![alt text](image-3.png) | <img src="https://raw.githubusercontent.com/Joao-lisboa7/joaopedrolisboa-portfolio/main/front-end/src/assets/foto_curriculo.JPG" alt="Demonstração 3" height="300"> | <img src="https://raw.githubusercontent.com/Joao-lisboa7/joaopedrolisboa-portfolio/main/front-end/src/assets/foto_curriculo.JPG" alt="Demonstração 4" height="300"> |
+| ![alt text](image-4.png) | ![alt text](image-3.png) | - | - |
 | _Portfolio web_ | _Perfil profissional_ | _Projetos_ | _Contato_ |
 
 ### 🌐 Aplicação Web
@@ -383,7 +383,7 @@ cd back-end
 | **Página Inicial (Home)** | **Sobre Mim** |
 | ![alt text](image.png) |![alt text](image-2.png)|
 | **Projetos** | **Contato** |
-| <img src="https://raw.githubusercontent.com/Joao-lisboa7/joaopedrolisboa-portfolio/main/front-end/src/assets/foto_curriculo.JPG" alt="Tela de Projetos" width="220" height="220"> | <img src="https://raw.githubusercontent.com/Joao-lisboa7/joaopedrolisboa-portfolio/main/front-end/src/assets/foto_curriculo.JPG" alt="Tela de Contato" width="220" height="220"> |
+| - | - |
 
 ### 💻 Exemplo de Saída no Terminal (para Back-end, API, CLI)
 
