@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Mail, User } from 'lucide-react';
+import './navbar.css';
 
 interface NavbarProps {
   title?: string;
@@ -13,7 +14,7 @@ const Navbar: React.FC<NavbarProps> = ({ title = 'Untitled' }) => {
   }, [title]);
 
   return (
-    <nav className="w-full flex items-center justify-between px-6 py-1 bg-transparent text-white border-b border-white/5 relative z-50">
+    <nav className="site-navbar w-full flex items-center justify-between px-6 py-3 bg-transparent text-white border-b border-white/5 relative z-50">
       {/* Left side: Page Title */}
       <div className="flex items-center">
         <h1 className="title-font leading-none">
@@ -49,10 +50,10 @@ const Navbar: React.FC<NavbarProps> = ({ title = 'Untitled' }) => {
 
         {/* Action Icons */}
         <div className="flex items-center gap-5">
-          <button className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
+          <button className="navbar-action text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
             <Mail size={20} strokeWidth={1.5} />
           </button>
-          <button className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
+          <button className="navbar-action text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
             <User size={20} strokeWidth={1.5} />
           </button>
         </div>

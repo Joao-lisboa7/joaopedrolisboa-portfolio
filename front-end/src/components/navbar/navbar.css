@@ -1,0 +1,20 @@
+.site-navbar {
+  color: var(--color-text-primary);
+}
+
+.navbar-action {
+  display: inline-flex;
+  padding: 0.25rem;
+  transition: color 200ms ease, filter 200ms ease;
+}
+
+.navbar-action:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .site-navbar {
+    padding-inline: 1rem;
+  }
+}

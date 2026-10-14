@@ -1,5 +1,5 @@
 import './home.css';
-import Navbar from '../../components/navbar/navbar';
+import Navbar from '../../components/navbar/Navbar';
 import GameMenu from '../../components/menu/Menu';
 
 function Home (){
@@ -11,14 +11,14 @@ function Home (){
   ]
 
   return(
-    <main className="relative w-screen h-screen bg-gray-900 overflow-hidden">
+    <main className="home-page">
       {/* Vídeo de background */}
       <video 
         autoPlay 
         loop 
         muted 
         playsInline 
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        className="home-page__background"
         src="/video/Faiscas-de-Fogo-SnapYT.App.mp4"
       />
 
