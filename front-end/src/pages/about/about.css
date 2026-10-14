@@ -1,88 +1,117 @@
-.about-container {
-  min-height: 100vh;
-  min-height: 100dvh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #0b0d10;
-  color: #e5dccf;
-  font-family: 'Cinzel', 'Trajan Pro', 'Baskerville', 'Times New Roman', serif;
-  padding: 2rem;
-  box-sizing: border-box;
+.about-page .animate-fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.about-card {
+.about-page .animate-delay-100 { animation-delay: 100ms; }
+.about-page .animate-delay-200 { animation-delay: 200ms; }
+.about-page .animate-delay-300 { animation-delay: 300ms; }
+.about-page .animate-delay-400 { animation-delay: 400ms; }
+.about-page .animate-delay-500 { animation-delay: 500ms; }
+
+.about-page .about-topics {
   display: flex;
+  width: 100%;
   flex-direction: column;
-  align-items: center;
+  gap: 1.75rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.about-page .about-topic {
+  width: 100%;
+}
+
+.about-page .about-topic__content {
+  min-width: 0;
+  padding: clamp(1.75rem, 5vw, 3rem) clamp(1.5rem, 7vw, 5rem);
+  border: 1px solid rgba(161, 161, 170, 0.14);
+  border-radius: 0.25rem;
+  background: linear-gradient(135deg, rgba(24, 24, 27, 0.72), rgba(9, 9, 11, 0.46));
   text-align: center;
-  max-width: 650px;
-  width: 90%;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  padding: 3rem 2.5rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  transition: border-color 250ms ease, background-color 250ms ease, transform 250ms ease;
 }
 
-.about-subtitle {
-  font-size: 0.8rem;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: #a89f91;
-  margin-bottom: 0.75rem;
+.about-page .about-topic:hover .about-topic__content {
+  transform: translateY(-3px);
+  border-color: rgba(153, 27, 27, 0.55);
+  background-color: rgba(24, 24, 27, 0.85);
 }
 
-.about-title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  letter-spacing: 4px;
+.about-page .about-topic__chapter {
+  margin: 0 0 0.5rem;
+  color: #d97706;
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #e5dccf;
-  margin: 0;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+.about-page .about-topic__title {
+  margin: 0 0 1rem;
+  color: #e4e4e7;
+  font-family: var(--font-title);
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 400;
 }
 
-.about-divider {
-  width: 200px;
-  height: 1px;
-  background: radial-gradient(circle, rgba(230, 126, 34, 0.8) 0%, transparent 100%);
-  margin: 1.5rem 0 2rem 0;
-  opacity: 0.8;
-  box-shadow: 0 0 8px rgba(230, 126, 34, 0.4);
-}
-
-.about-description {
-  color: #c2c0bd;
-  font-size: 1.15rem;
+.about-page .about-topic__description {
+  max-width: 42rem;
+  margin: 0 auto;
+  color: #a1a1aa;
   line-height: 1.8;
-  margin-bottom: 2.5rem;
 }
 
-.about-back-button {
-  display: inline-flex;
-  align-items: center;
+.about-page .about-topic__skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5rem;
-  color: #d96b38;
-  text-decoration: none;
-  font-size: 1rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  padding: 0.8rem 1.5rem;
-  border: 1px solid rgba(217, 107, 56, 0.4);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  background: rgba(217, 107, 56, 0.05);
+  margin-top: 1.25rem;
 }
 
-.about-back-button:hover {
-  color: #ffecd2;
-  border-color: rgba(230, 126, 34, 0.8);
-  background: rgba(230, 126, 34, 0.15);
-  box-shadow: 0 0 15px rgba(230, 126, 34, 0.4);
-  transform: translateY(-2px);
+.about-page .about-topic__skills span {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(161, 161, 170, 0.2);
+  background: rgba(9, 9, 11, 0.6);
+  color: #d4d4d8;
+  font-family: monospace;
+  font-size: 0.75rem;
+  transition: border-color 200ms ease, color 200ms ease;
 }
 
+.about-page .about-topic__skills span:hover {
+  border-color: rgba(185, 28, 28, 0.65);
+  color: #fff;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page .about-topics {
+    gap: 1.25rem;
+  }
+
+  .about-page .about-topic__content {
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page .animate-fade-in-up {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+
+  .about-page .about-topic__content,
+  .about-page .about-topic__skills span {
+    transition: none;
+  }
+}
