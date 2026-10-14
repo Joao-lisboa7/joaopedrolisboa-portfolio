@@ -373,7 +373,7 @@ cd back-end
 
 | Demonstração 1 | Demonstração 2 | Demonstração 3 | Demonstração 4 |
 |----------------|----------------|----------------|----------------|
-| ![alt text](image-4.png) | ![alt text](image-3.png) | - | - |
+| ![alt text](doc/image-4.png) | ![alt text](doc/image-3.png) | - | - |
 | _Portfolio web_ | _Perfil profissional_ | _Projetos_ | _Contato_ |
 
 ### 🌐 Aplicação Web
@@ -381,7 +381,7 @@ cd back-end
 | Tela | Captura de Tela |
 | :---: | :---: |
 | **Página Inicial (Home)** | **Sobre Mim** |
-| ![alt text](image.png) |![alt text](image-2.png)|
+| ![alt text](doc/image.png) |![alt text](doc/image-2.png)|
 | **Projetos** | **Contato** |
 | - | - |
 
