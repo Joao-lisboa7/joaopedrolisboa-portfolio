@@ -1,124 +1,206 @@
 import React from 'react';
+import {
+  ArrowUpRight,
+  Brain,
+  BriefcaseBusiness,
+  Code2,
+  Database,
+  GraduationCap,
+  Lightbulb,
+  MessageCircle,
+  Network,
+  UsersRound,
+} from 'lucide-react';
 import './about.css';
 import Navbar from '@/components/navbar/Navbar';
 import FrameImg from '@/components/frame-img/FrameImg';
 
 const profileImage = new URL('../../assets/foto_curriculo.JPG', import.meta.url).href;
 
+const technicalSkills = [
+  {
+    icon: Code2,
+    title: 'Desenvolvimento de software',
+    skills: ['Java', 'Spring Boot', 'JavaScript', 'TypeScript', 'React'],
+    description: 'Construção de APIs, organização de código e integração entre sistemas.',
+  },
+  {
+    icon: Database,
+    title: 'Dados e persistência',
+    skills: ['SQL', 'PostgreSQL', 'Supabase', 'Modelagem de dados'],
+    description: 'Estruturação, armazenamento e integração de dados para aplicações digitais.',
+  },
+  {
+    icon: Network,
+    title: 'Análise e gestão de produtos',
+    skills: ['Requisitos', 'Processos', 'Indicadores', 'Scrum', 'Kanban'],
+    description: 'Transformação de necessidades de negócio em demandas e soluções viáveis.',
+  },
+];
+
+const softSkills = [
+  {
+    icon: Brain,
+    title: 'Pensamento analítico',
+    description: 'Investigar problemas, interpretar informações e avaliar alternativas antes de propor soluções.',
+  },
+  {
+    icon: MessageCircle,
+    title: 'Comunicação',
+    description: 'Conectar perspectivas técnicas e de negócio, alinhando ideias entre diferentes públicos.',
+  },
+  {
+    icon: UsersRound,
+    title: 'Colaboração',
+    description: 'Contribuir para objetivos compartilhados, trocar conhecimentos e trabalhar entre áreas.',
+  },
+  {
+    icon: Lightbulb,
+    title: 'Aprendizado contínuo',
+    description: 'Buscar novos conhecimentos e adaptar habilidades a desafios e tecnologias.',
+  },
+];
+
 const AboutMe: React.FC = () => {
   return (
     <div className="about-page min-h-screen bg-[#050505] text-zinc-300 font-sans selection:bg-red-900 selection:text-white overflow-hidden">
-      <Navbar title="About me"/>
+      <Navbar title="About me" />
 
-      {/* Efeito de Fundo - Partículas/Cinzas sutis (Simulado com gradiente radial) */}
-      <div className="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-900/20 via-[#050505]/80 to-[#050505] z-0"></div>
+      <div className="about-page__backdrop" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 py-20">
-        
-        {/* Cabeçalho / Prólogo */}
-        <header className="mb-32 animate-fade-in-up">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-24">
-            <div className="flex-1 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-4 mb-6 opacity-80">
-                <span className="font-cinzel text-amber-600 tracking-widest text-sm uppercase">
-                  Prólogo — A Origem
-                </span>
-                <div className="hidden md:block h-px w-24 bg-gradient-to-r from-amber-600 to-transparent"></div>
-              </div>
-          
-
-              <h1 className="font-cinzel text-5xl md:text-7xl lg:text-8xl font-bold text-zinc-100 tracking-wider mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                João Pedro
-              </h1>
-              <h2 className="font-cinzel text-xl md:text-2xl text-red-800 tracking-[0.2em] mb-8 uppercase">
-                Software Engineer
-              </h2>
-
-              <p className="max-w-xl mx-auto md:mx-0 text-zinc-400 leading-relaxed text-lg border-l border-zinc-800 pl-4 md:border-l-0 md:pl-0">
-                Forjando soluções digitais robustas e interfaces imersivas.
-                Uma jornada guiada pela engenharia de precisão e pelo design focado na experiência do usuário.
-              </p>
+      <main className="about-page__main">
+        <header className="about-intro animate-fade-in-up" aria-labelledby="about-title">
+          <div className="about-intro__copy">
+            <div className="about-eyebrow">
+              <span>01</span>
+              <span>Introdução</span>
+              <i aria-hidden="true" />
             </div>
-
-            <div className="flex-shrink-0 mt-8 md:mt-0">
-              <FrameImg className="w-64 h-64 md:w-80 md:h-80 mx-auto md:mx-0" imageUrl={profileImage} />
-            </div>
-
+            <p className="about-intro__overline">Uma jornada entre tecnologia e propósito</p>
+            <h1 id="about-title" className="about-intro__name">João Pedro</h1>
+            <h2 className="about-intro__role">Software Engineer</h2>
+            <p className="about-intro__summary">
+              Forjando soluções digitais robustas e experiências intuitivas. Minha jornada é
+              guiada pela engenharia de precisão, pela curiosidade e por um olhar atento às
+              necessidades de quem usa cada produto.
+            </p>
+            <a className="about-intro__link" href="#origem">
+              Conheça minha trajetória <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          </div>
+          <div className="about-intro__portrait">
+            <FrameImg className="w-64 h-64 md:w-80 md:h-80 mx-auto" imageUrl={profileImage} />
+            <span className="about-intro__portrait-caption">Minas Gerais · Brasil</span>
           </div>
         </header>
 
-        {/* Trajetória organizada por tópicos */}
-        <section className="about-topics mt-24" aria-label="Minha trajetória">
-          <article className="about-topic animate-fade-in-up animate-delay-100">
-            <div className="about-topic__content">
-              <p className="about-topic__chapter">Capítulo I</p>
-              <h3 className="about-topic__title">O Despertar</h3>
-              <p className="about-topic__description">
-                O início da trajetória acadêmica na Pontifícia Universidade Católica (PUC Minas).
-                Os primeiros contatos com a lógica de programação, estruturas de dados em C++ e a fundação do pensamento analítico.
-              </p>
-            </div>
-          </article>
+        <section className="about-section about-origin" id="origem" aria-labelledby="origin-title">
+          <div className="about-section__heading">
+            <div className="about-eyebrow"><span>02</span><span>Origem</span></div>
+            <h2 id="origin-title">Uma base construída com intenção.</h2>
+            <p>Conhecimento acadêmico e experiência prática moldando a forma como resolvo problemas.</p>
+          </div>
 
-          <article className="about-topic animate-fade-in-up animate-delay-200">
-            <div className="about-topic__content">
-              <p className="about-topic__chapter">Capítulo II</p>
-              <h3 className="about-topic__title">A Forja</h3>
-              <p className="about-topic__description">
-                O domínio das ferramentas e o desenvolvimento de habilidades técnicas.
-                A construção de sistemas complexos e plataformas web full-stack, transformando conceitos abstratos em arquiteturas funcionais.
-              </p>
-              <div className="about-topic__skills">
-                {['Java', 'Spring Boot', 'React', 'Next.js', 'PostgreSQL', 'Tailwind CSS'].map((tech) => (
-                  <span key={tech}>{tech}</span>
+          <div className="about-origin__grid">
+            <article className="about-info-card">
+              <div className="about-info-card__icon"><GraduationCap size={19} aria-hidden="true" /></div>
+              <div>
+                <span className="about-card-label">Formação acadêmica</span>
+                <h3>Engenharia de Software</h3>
+                <p className="about-info-card__meta">PUC Minas</p>
+                <p>
+                  Uma formação voltada a desenvolvimento de software, engenharia de requisitos,
+                  arquitetura de sistemas e resolução estruturada de problemas.
+                </p>
+              </div>
+            </article>
+
+            <article className="about-info-card">
+              <div className="about-info-card__icon"><BriefcaseBusiness size={18} aria-hidden="true" /></div>
+              <div>
+                <span className="about-card-label">Experiência profissional</span>
+                <h3>CNH Industrial</h3>
+                <p className="about-info-card__meta">Tecnologia · Operações digitais</p>
+                <p>
+                  Experiência com plataformas digitais, telemetria e suporte técnico em escala
+                  para equipes da América Latina e da América do Norte.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="about-section about-arsenal" aria-labelledby="arsenal-title">
+          <div className="about-section__heading">
+            <div className="about-eyebrow"><span>03</span><span>Arsenal</span></div>
+            <h2 id="arsenal-title">Skills que transformam desafios em soluções.</h2>
+            <p>Uma combinação de repertório técnico, visão de produto e competências humanas.</p>
+          </div>
+
+          <div className="about-skills">
+            <div className="about-skills__technical">
+              <div className="about-skills__heading">
+                <Code2 size={18} aria-hidden="true" />
+                <h3>Habilidades técnicas</h3>
+                <span>Technical skills</span>
+              </div>
+              <div className="about-technical-list">
+                {technicalSkills.map(({ icon: Icon, title, skills, description }) => (
+                  <article className="about-technical-card" key={title}>
+                    <div className="about-technical-card__icon"><Icon size={18} aria-hidden="true" /></div>
+                    <div className="about-technical-card__body">
+                      <h4>{title}</h4>
+                      <ul className="about-skill-tags" aria-label={`Tecnologias e práticas: ${title}`}>
+                        {skills.map((skill) => <li key={skill}>{skill}</li>)}
+                      </ul>
+                      <p>{description}</p>
+                    </div>
+                  </article>
                 ))}
               </div>
             </div>
-          </article>
 
-          <article className="about-topic animate-fade-in-up animate-delay-300">
-            <div className="about-topic__content">
-              <p className="about-topic__chapter">Capítulo III</p>
-              <h3 className="about-topic__title">A Jornada</h3>
-              <p className="about-topic__description">
-                A entrada no campo de batalha corporativo. Experiência prática na CNH Industrial,
-                gerenciando plataformas digitais, telemetria e prestando suporte técnico em escala para a América Latina e América do Norte.
-              </p>
+            <div className="about-skills__soft">
+              <div className="about-skills__heading">
+                <UsersRound size={18} aria-hidden="true" />
+                <h3>Competências interpessoais</h3>
+                <span>Soft skills</span>
+              </div>
+              <div className="about-soft-grid">
+                {softSkills.map(({ icon: Icon, title, description }) => (
+                  <article className="about-soft-card" key={title}>
+                    <Icon size={18} aria-hidden="true" />
+                    <h4>{title}</h4>
+                    <p>{description}</p>
+                  </article>
+                ))}
+              </div>
             </div>
-          </article>
-
-          <article className="about-topic animate-fade-in-up animate-delay-400">
-            <div className="about-topic__content">
-              <p className="about-topic__chapter">Capítulo IV</p>
-              <h3 className="about-topic__title">A Evolução</h3>
-              <p className="about-topic__description">
-                Consolidação de competências em metodologias ágeis (Scrum, Kanban) e design de banco de dados.
-                Desenvolvimento de projetos arquiteturais focados em escalabilidade e interfaces centradas no usuário.
-              </p>
-            </div>
-          </article>
+          </div>
         </section>
 
-        {/* Epílogo */}
-        <footer className="mt-32 text-center border-t border-zinc-900 pt-16 animate-fade-in-up animate-delay-500">
-          <div className="inline-block mb-6">
-             <div className="w-8 h-8 mx-auto border-t border-r border-amber-600 transform -rotate-45 mb-4"></div>
-           <div className="w-8 h-8 mx-auto border-t border-r border-amber-600 transform -rotate-45 mb-4"></div>
+        <section className="about-section about-philosophy" aria-labelledby="philosophy-title">
+          <div className="about-section__heading">
+            <div className="about-eyebrow"><span>04</span><span>Filosofia</span></div>
           </div>
-          <h3 className="font-cinzel text-2xl text-amber-600 tracking-widest mb-4 uppercase">
-            Epílogo — O Próximo Capítulo
-          </h3>
-          <p className="max-w-2xl mx-auto text-zinc-400 leading-relaxed mb-12">
-            A busca contínua pela maestria em engenharia de software e gestão de produtos.
-            Pronto para enfrentar novos desafios, liderar iniciativas técnicas e esculpir a próxima geração de aplicações digitais.
-          </p>
+          <div className="about-philosophy__content">
+            <span className="about-philosophy__mark" aria-hidden="true">“</span>
+            <div>
+              <h2 id="philosophy-title">Boas soluções começam pela escuta.</h2>
+              <p>
+                Acredito que tecnologia de qualidade nasce da compreensão genuína dos problemas.
+                Por isso, valorizo a colaboração, o aprendizado constante e a construção de
+                produtos que conectam necessidades reais a soluções simples, confiáveis e úteis.
+              </p>
+              <span className="about-philosophy__signature">O próximo capítulo está em construção.</span>
+            </div>
+          </div>
+        </section>
 
-
-          <button className="px-8 py-3 bg-transparent border border-red-900 text-zinc-300 font-cinzel tracking-widest uppercase text-sm hover:bg-red-950/30 hover:border-red-600 transition-all duration-300">
-            Estabelecer Contato
-          </button>
+        <footer className="about-footer">
+          <p>Pronto para novos desafios e para construir o próximo capítulo.</p>
         </footer>
-      </div>
+      </main>
     </div>
   );
 };
