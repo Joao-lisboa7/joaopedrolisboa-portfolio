@@ -5,8 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import br.com.joaolisboa.portfolio_profissional.model.Project;
-import br.com.joaolisboa.portfolio_profissional.repository.ProjectRepository;
+import br.com.joaolisboa.portfolio_profissional.projects.model.Project;
+import br.com.joaolisboa.portfolio_profissional.projects.repository.ProjectRepository;
 
 @SpringBootApplication
 public class PortfolioProfissionalApplication {

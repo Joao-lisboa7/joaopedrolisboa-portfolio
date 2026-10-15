@@ -1,4 +1,4 @@
-package br.com.joaolisboa.portfolio_profissional.controller;
+package br.com.joaolisboa.portfolio_profissional.projects.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

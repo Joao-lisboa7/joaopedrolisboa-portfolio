@@ -1,4 +1,4 @@
-package br.com.joaolisboa.portfolio_profissional.model;
+package br.com.joaolisboa.portfolio_profissional.projects.model;
 
 import jakarta.persistence.*;
 
