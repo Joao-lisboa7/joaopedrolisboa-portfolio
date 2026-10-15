@@ -1,5 +1,6 @@
 .site-navbar {
   color: var(--color-text-primary);
+  backdrop-filter: blur(5px);
 }
 
 .navbar-action {
