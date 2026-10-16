@@ -1,8 +1,0 @@
-.app-page {
-  display: grid;
-  min-height: 100vh;
-  place-items: center;
-  padding: 2rem;
-  color: var(--color-text-secondary);
-  font-family: var(--font-body);
-}
