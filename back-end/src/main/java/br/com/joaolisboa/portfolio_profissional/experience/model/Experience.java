@@ -2,8 +2,11 @@ package br.com.joaolisboa.portfolio_profissional.experience.model;
 
 import java.time.LocalDate;
 
+import br.com.joaolisboa.portfolio_profissional.experience.enums.SeniorityLevel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,10 +21,18 @@ public class Experience {
   private Integer id;
 
   private String company;
-  private String position;
+
+  private String positionPt;
+  private String positionEn;
+
+  @Enumerated(EnumType.STRING)
+  private SeniorityLevel seniorityLevel;
 
   @Column (columnDefinition = "TEXT")
-  private String description;
+  private String descriptionPt;
+
+  @Column (columnDefinition = "TEXT")
+  private String descriptionEn;
 
   private LocalDate startDate;
   private LocalDate endDate;
@@ -46,20 +57,44 @@ public class Experience {
     this.company = company;
   }
 
-  public String getPosition() {
-    return position;
+  public String getPositionPt() {
+    return positionPt;
   }
 
-  public void setPosition(String position) {
-    this.position = position;
+  public void setPositionPt(String positionPt) {
+    this.positionPt = positionPt;
   }
 
-  public String getDescription() {
-    return description;
+  public String getPositionEn() {
+    return positionEn;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setPositionEn(String positionEn) {
+    this.positionEn = positionEn;
+  }
+
+  public SeniorityLevel getSeniorityLevel() {
+    return seniorityLevel;
+  }
+
+  public void setSeniorityLevel(SeniorityLevel seniorityLevel) {
+    this.seniorityLevel = seniorityLevel;
+  }
+
+  public String getDescriptionPt() {
+    return descriptionPt;
+  }
+
+  public void setDescriptionPt(String descriptionPt) {
+    this.descriptionPt = descriptionPt;
+  }
+
+  public String getDescriptionEn() {
+    return descriptionEn;
+  }
+
+  public void setDescriptionEn(String descriptionEn) {
+    this.descriptionEn = descriptionEn;
   }
 
   public LocalDate getStartDate() {

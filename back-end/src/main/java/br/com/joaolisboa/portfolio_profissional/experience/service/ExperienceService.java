@@ -22,6 +22,13 @@ public class ExperienceService {
   public Experience save(Experience experience) {
     return repository.save(experience);
   }
+
+  public Experience findById(Integer id) {
+    return repository.findById(id).
+      orElseThrow(() ->
+        new RuntimeException("Experience not found")
+      );
+}
   
 
 }
