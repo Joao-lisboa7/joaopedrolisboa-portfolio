@@ -22,7 +22,7 @@ function Home (){
         src="/video/Faiscas-de-Fogo-SnapYT.App.mp4"
       />
 
-      <Navbar title="Home"/>
+      <Navbar title="Home" showBackButton={false} />
 
       <GameMenu
         title="João Pedro Lisboa Brito"
