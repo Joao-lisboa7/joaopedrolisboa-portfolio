@@ -14,8 +14,63 @@
   outline-offset: 3px;
 }
 
+/* Back button com tema Game/RPG */
+.navbar-back-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.35rem 0.65rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navbar-back-btn__icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(9, 9, 11, 0.6);
+  border-radius: 4px;
+  color: var(--color-muted);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.navbar-back-btn__icon {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s ease;
+}
+
+/* Hover e Focus */
+.navbar-back-btn:hover .navbar-back-btn__icon-wrapper,
+.navbar-back-btn:focus-visible .navbar-back-btn__icon-wrapper {
+  color: #ffecd2;
+  border-color: rgba(230, 126, 34, 0.7);
+  background: rgba(24, 24, 27, 0.85);
+  box-shadow: 
+    0 0 12px rgba(230, 126, 34, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.8);
+  transform: scale(1.05);
+}
+
+.navbar-back-btn:hover .navbar-back-btn__icon {
+  transform: translateX(-3px);
+  filter: drop-shadow(0 0 6px rgba(230, 126, 34, 0.8));
+}
+
+.navbar-back-btn:focus-visible {
+  outline: none;
+}
+
 @media (max-width: 480px) {
   .site-navbar {
     padding-inline: 1rem;
   }
 }
+

@@ -1,22 +1,52 @@
 import { useState, useEffect } from 'react';
-import { Mail, User } from 'lucide-react';
+import { Mail, User, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router';
 import './navbar.css';
 
 interface NavbarProps {
   title?: string;
+  showBackButton?: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ title = 'Untitled' }) => {
+const Navbar: React.FC<NavbarProps> = ({ title = 'Untitled', showBackButton = true }) => {
   const [activeLang, setActiveLang] = useState<'ENG' | 'POR'>('ENG');
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = title;
   }, [title]);
 
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
+  };
+
   return (
     <nav className="site-navbar w-full flex items-center justify-between px-6 py-3 bg-transparent text-white border-b border-white/5 relative z-50">
-      {/* Left side: Page Title */}
-      <div className="flex items-center">
+      {/* Left side: Back Button & Page Title */}
+      <div className="flex items-center gap-3">
+        {showBackButton && (
+          <button
+            type="button"
+            onClick={handleBack}
+            className="navbar-back-btn group"
+            title="Voltar à página anterior"
+            aria-label="Voltar à página anterior"
+          >
+            <span className="navbar-back-btn__icon-wrapper">
+              <ArrowLeft
+                size={18}
+                strokeWidth={2}
+                className="navbar-back-btn__icon"
+                aria-hidden="true"
+              />
+            </span>
+          </button>
+        )}
+
         <h1 className="title-font leading-none">
           {title}
         </h1>
