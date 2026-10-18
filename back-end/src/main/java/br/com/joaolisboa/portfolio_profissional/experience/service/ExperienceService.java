@@ -28,7 +28,24 @@ public class ExperienceService {
       orElseThrow(() ->
         new RuntimeException("Experience not found")
       );
-}
+  }
+
+  public Experience update(Integer id, Experience updatedExperience){
+    Experience experience = this.findById(id);
+    
+    experience.setCompany(updatedExperience.getCompany());
+    experience.setPositionPt(updatedExperience.getPositionPt());
+    experience.setPositionEn(updatedExperience.getPositionEn());
+    experience.setSeniorityLevel(updatedExperience.getSeniorityLevel());
+    experience.setDescriptionPt(updatedExperience.getDescriptionPt());
+    experience.setDescriptionEn(updatedExperience.getDescriptionEn());
+    experience.setStartDate(updatedExperience.getStartDate());
+    experience.setEndDate(updatedExperience.getEndDate());
+    experience.setCurrent(updatedExperience.isCurrent());
+
+    return repository.save(experience);
+    
+  }
   
 
 }

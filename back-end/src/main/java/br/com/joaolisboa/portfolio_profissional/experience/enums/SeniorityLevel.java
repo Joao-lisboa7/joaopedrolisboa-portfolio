@@ -2,7 +2,7 @@ package br.com.joaolisboa.portfolio_profissional.experience.enums;
 
 public enum SeniorityLevel {
   ESTAGIO("Estágio", "Internship"),
-  UNIOR("Júnior", "Junior"),
+  JUNIOR("Júnior", "Junior"),
   PLENO("Pleno", "Mid-level"),
   SENIOR("Sênior", "Senior");
 
