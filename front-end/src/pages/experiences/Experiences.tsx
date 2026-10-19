@@ -119,15 +119,15 @@ function Experiences({ language = 'pt' }: ExperienceProps) {
               return (
                 <div 
                   key={exp.id}
-                  className={`timeline-item relative flex flex-col items-center justify-between mb-20 md:mb-28 ${
+                  className={`timeline-item relative flex flex-col items-center justify-between mb-16 md:mb-24 ${
                     isEven ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                 >
-                  {/* Bloco de Conteúdo / Card Clicável */}
+                  {/* Bloco de Conteúdo / Card Clicável (ocupa 48% para melhor preenchimento do espaço) */}
                   <div 
                     onClick={() => setSelectedExperience(exp)}
-                    className={`w-full md:w-5/12 mb-6 md:mb-0 ${
-                      isEven ? 'md:text-right md:pr-10' : 'md:text-left md:pl-10'
+                    className={`w-full md:w-[48%] mb-6 md:mb-0 ${
+                      isEven ? 'md:text-right md:pr-6' : 'md:text-left md:pl-6'
                     }`}
                   >
                     <div 
@@ -143,20 +143,25 @@ function Experiences({ language = 'pt' }: ExperienceProps) {
                       aria-label={`${position} - ${exp.company}`}
                     >
                       {/* Identificador do Capítulo / Título */}
-                      <p className="text-amber-600/90 font-cinzel tracking-widest text-xs uppercase mb-1">
-                        {isPt ? `Capítulo ${chapterRoman}` : `Chapter ${chapterRoman}`}
-                      </p>
+                      <div className={`flex items-center gap-2 mb-1.5 ${
+                        isEven ? 'md:justify-end' : 'md:justify-start'
+                      }`}>
+                        <span className="text-amber-600/90 font-cinzel tracking-widest text-xs uppercase font-semibold">
+                          {isPt ? `Capítulo ${chapterRoman}` : `Chapter ${chapterRoman}`}
+                        </span>
+                        <span className="w-8 h-[1px] bg-amber-700/40 hidden md:inline-block" />
+                      </div>
 
-                      <h3 className="font-cinzel text-xl md:text-2xl text-zinc-100 font-semibold mb-2 group-hover:text-amber-400 transition-colors">
+                      <h3 className="font-cinzel text-xl md:text-2xl text-zinc-100 font-semibold mb-2 group-hover:text-amber-400 transition-colors leading-snug">
                         {position}
                       </h3>
 
-                      {/* Metadados: Empresa, Senioridade e Período */}
+                      {/* Metadados: Destaque Especial da Empresa, Senioridade e Período */}
                       <div className={`flex flex-wrap items-center gap-2 mb-3 text-xs ${
                         isEven ? 'md:justify-end' : 'md:justify-start'
                       }`}>
-                        <span className="inline-flex items-center gap-1 text-amber-500 font-cinzel font-medium">
-                          <Briefcase size={13} className="text-amber-600" />
+                        <span className="inline-flex items-center gap-1.5 text-amber-400 font-cinzel font-semibold px-2 py-0.5 border border-amber-800/60 bg-amber-950/40 tracking-wider shadow-[0_0_10px_rgba(217,119,6,0.15)] group-hover:border-amber-600/80 transition-colors uppercase">
+                          <Briefcase size={12} className="text-amber-500" />
                           {exp.company}
                         </span>
                         <span className="text-zinc-600">•</span>
@@ -164,7 +169,7 @@ function Experiences({ language = 'pt' }: ExperienceProps) {
                           {seniority}
                         </span>
                         <span className="text-zinc-600">•</span>
-                        <span className="inline-flex items-center gap-1 text-zinc-400 font-mono">
+                        <span className="inline-flex items-center gap-1.5 text-zinc-400 font-mono">
                           <Calendar size={13} className="text-zinc-500" />
                           {exp.startDate} — {exp.current ? (isPt ? 'Atual' : 'Present') : exp.endDate}
                         </span>
@@ -179,22 +184,34 @@ function Experiences({ language = 'pt' }: ExperienceProps) {
                       <div className={`flex items-center gap-1 text-xs text-amber-500/80 group-hover:text-amber-400 font-cinzel tracking-wider uppercase transition-colors ${
                         isEven ? 'md:justify-end' : 'md:justify-start'
                       }`}>
-                        <span>{isPt ? 'Ver detalhes da missão' : 'View mission details'}</span>
+                        <span>{isPt ? 'Ver detalhes da experiência' : 'View experience details'}</span>
                         <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
                       </div>
                     </div>
                   </div>
 
-                  {/* Marcador Geométrico no Centro da Linha */}
+                  {/* Marcador Geométrico no Centro da Linha (centralizado matematicamente) */}
                   <div 
-                    className="timeline-marker absolute left-0 md:left-1/2 w-3.5 h-3.5 bg-red-800 rotate-45 transform md:-translate-x-1/2 border border-amber-500/60 shadow-[0_0_12px_rgba(153,27,27,0.85)] z-10 hidden md:block cursor-pointer"
+                    className="timeline-marker hidden md:block"
                     onClick={() => setSelectedExperience(exp)}
                     title={isPt ? "Ver detalhes" : "View details"}
-                    aria-hidden="true"
+                    aria-label={isPt ? "Ver detalhes" : "View details"}
                   />
 
-                  {/* Espaçador para o lado oposto da timeline */}
-                  <div className="hidden md:block md:w-5/12" aria-hidden="true" />
+                  {/* Lado Oposto (ocupa 48% balanceando o espaço vazio com empresa destacada e período) */}
+                  <div className={`hidden md:flex md:w-[48%] flex-col justify-center ${
+                    isEven ? 'pl-8 text-left' : 'pr-8 text-right'
+                  }`}>
+                    <span className="font-cinzel text-amber-500 font-semibold text-lg tracking-wider uppercase mb-1">
+                      {exp.company}
+                    </span>
+                    <span className="font-cinzel text-sm text-zinc-300 font-medium">
+                      {exp.startDate} — {exp.current ? (isPt ? 'PRESENTE' : 'PRESENT') : exp.endDate}
+                    </span>
+                    <span className="text-zinc-500 text-xs font-mono mt-0.5">
+                      // {seniority}
+                    </span>
+                  </div>
                 </div>
               );
             })}
