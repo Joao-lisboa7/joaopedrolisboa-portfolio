@@ -1,0 +1,102 @@
+.experiences-page {
+  position: relative;
+  min-height: 100vh;
+  background-color: #050505;
+  color: #d4d4d8;
+  overflow-x: hidden;
+  isolation: isolate;
+}
+
+.experiences-page__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 15%, rgba(120, 53, 15, 0.12), transparent 35rem),
+    radial-gradient(ellipse at 85% 55%, rgba(127, 29, 29, 0.09), transparent 32rem),
+    #050505;
+}
+
+.experiences-page__main {
+  position: relative;
+  width: min(100% - 3rem, 72rem);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) 0 5rem;
+}
+
+/* Linha contínua vertical da timeline (desktop) */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(180, 83, 9, 0.45) 8%,
+    rgba(185, 28, 28, 0.65) 50%,
+    rgba(180, 83, 9, 0.45) 92%,
+    transparent
+  );
+  box-shadow: 0 0 12px rgba(185, 28, 28, 0.35);
+}
+
+/* Card interativo da timeline */
+.timeline-card {
+  position: relative;
+  padding: 1.5rem;
+  border: 1px solid rgba(161, 161, 170, 0.16);
+  background: linear-gradient(135deg, rgba(24, 24, 27, 0.6), rgba(9, 9, 11, 0.82));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.timeline-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(217, 119, 6, 0.55);
+  background: linear-gradient(135deg, rgba(39, 32, 25, 0.75), rgba(15, 15, 18, 0.9));
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(230, 126, 34, 0.15);
+}
+
+/* Brilho decorativo no canto superior do card */
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(230, 126, 34, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.timeline-card:hover::before {
+  opacity: 1;
+}
+
+/* Marcador Losango Central */
+.timeline-marker {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover .timeline-marker {
+  transform: translateX(-50%) rotate(45deg) scale(1.25);
+  box-shadow: 0 0 15px rgba(230, 126, 34, 0.95);
+  border-color: #f59e0b;
+}
+
+@media (max-width: 768px) {
+  .experiences-page__main {
+    width: min(100% - 2rem, 42rem);
+  }
+}
+
