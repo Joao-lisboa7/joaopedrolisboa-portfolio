@@ -6,7 +6,7 @@ function Home (){
   const menuItems = [
     { id: '1', label: 'Sobre Mim', href: '/about'},
     { id: '2', label: 'Projetos', href: '/projetos' },
-    { id: '4', label: 'Experiência', href: '/Experiencias' },
+    { id: '4', label: 'Experiência', href: '/experiences' },
     { id: '3', label: 'Contato', href: '/Contatos' },
   ]
 
