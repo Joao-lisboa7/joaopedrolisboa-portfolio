@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { X } from 'lucide-react';
 import type { Experience } from '@/types/Experience';
 
@@ -42,12 +42,12 @@ export function ExperienceCard({ experience, onClose, language = 'pt' }: Experie
   return (
     /* Container Overlay com Fundo Embaçado */
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in transition-all duration-300"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-black/80 backdrop-blur-md animate-fade-in transition-all duration-300"
       onClick={onClose}
     >
       {/* Card Principal */}
       <div 
-        className="relative w-full max-w-2xl border border-zinc-800 bg-[#0A0A0C]/95 p-6 md:p-8 rounded-sm shadow-[0_0_40px_rgba(0,0,0,0.95)] overflow-hidden transition-all duration-300"
+        className="relative w-full max-w-2xl max-h-[88vh] flex flex-col border border-zinc-800 bg-[#0A0A0C]/95 p-6 md:p-8 rounded-sm shadow-[0_0_40px_rgba(0,0,0,0.95)] overflow-hidden transition-all duration-300"
         onClick={(e) => e.stopPropagation()} // Impede o fechamento ao clicar no interior do card
       >
         {/* Efeito Glow no Topo */}
@@ -64,7 +64,7 @@ export function ExperienceCard({ experience, onClose, language = 'pt' }: Experie
           <button
             type="button"
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 text-zinc-400 hover:text-amber-500 hover:bg-zinc-900/80 transition-all border border-zinc-800/80 hover:border-amber-600/60 rounded-sm group focus:outline-none focus:ring-1 focus:ring-amber-500/50"
+            className="absolute top-5 right-5 p-2 text-zinc-400 hover:text-amber-500 hover:bg-zinc-900/80 transition-all border border-zinc-800/80 hover:border-amber-600/60 rounded-sm group focus:outline-none focus:ring-1 focus:ring-amber-500/50"
             aria-label={isPt ? "Fechar experiência" : "Close experience"}
             title={isPt ? "Fechar" : "Close"}
           >
@@ -78,11 +78,11 @@ export function ExperienceCard({ experience, onClose, language = 'pt' }: Experie
         )}
 
         {/* Cabeçalho do Card */}
-        <div className="mb-6 pr-8">
+        <div className="mb-5 pr-10">
           {/* Tag de Empresa, Senioridade e Período */}
           <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-            <div className="flex items-center gap-2">
-              <span className="font-cinzel text-amber-500 tracking-wider text-xs font-semibold px-2.5 py-0.5 border border-amber-900/40 bg-amber-950/30 uppercase">
+            <div className="flex items-center gap-2.5">
+              <span className="font-cinzel text-amber-500 tracking-wider text-xs font-semibold px-2.5 py-1 border border-amber-900/40 bg-amber-950/30 uppercase">
                 {experience.company}
               </span>
               <span className="text-zinc-500 text-xs font-mono tracking-tight">
@@ -96,25 +96,21 @@ export function ExperienceCard({ experience, onClose, language = 'pt' }: Experie
           </div>
 
           {/* Cargo */}
-          <h2 className="font-cinzel text-2xl md:text-3xl text-zinc-100 font-bold tracking-wide leading-tight">
+          <h2 className="font-cinzel text-2xl md:text-3xl text-zinc-100 font-bold tracking-wide leading-snug">
             {position}
           </h2>
 
-          {/* Divisor Ornamental */}
-          <div className="mt-4 flex items-center gap-2">
-            <div className="h-[1px] flex-1 bg-gradient-to-r from-red-900/80 via-amber-700/40 to-transparent" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-amber-600" />
-            <div className="w-1 h-1 rotate-45 bg-zinc-600" />
-          </div>
+          {/* Linha Divisória Limpa (sem ícones brilhantes) */}
+          <div className="mt-4 h-[1px] w-full bg-gradient-to-r from-amber-600/40 via-red-900/60 to-transparent" />
         </div>
 
-        {/* Lista de Atividades por Tópicos */}
-        <div className="space-y-3">
+        {/* Lista de Atividades por Tópicos com distribuição harmônica */}
+        <div className="space-y-3 overflow-y-auto pr-2 max-h-[52vh]">
           <h3 className="font-cinzel text-xs text-amber-600/90 tracking-widest uppercase font-semibold">
             {isPt ? 'Principais Atividades & Responsabilidades' : 'Key Activities & Responsibilities'}
           </h3>
 
-          <ul className="space-y-2.5">
+          <ul className="space-y-3">
             {activities.map((activity, index) => (
               <li key={index} className="flex items-start gap-3 text-zinc-300 text-sm leading-relaxed">
                 {/* Marcador Geométrico estilo Losango */}
@@ -126,7 +122,7 @@ export function ExperienceCard({ experience, onClose, language = 'pt' }: Experie
         </div>
 
         {/* Rodapé do Card */}
-        <div className="mt-8 pt-4 border-t border-zinc-900/80 flex justify-between items-center text-[11px] text-zinc-500 font-cinzel tracking-widest">
+        <div className="mt-6 pt-4 border-t border-zinc-900/80 flex justify-between items-center text-[11px] text-zinc-500 font-cinzel tracking-widest">
           <span>{isPt ? 'REGISTRO DE EXPERIÊNCIA' : 'EXPERIENCE RECORD'}</span>
           {onClose && (
             <button 
