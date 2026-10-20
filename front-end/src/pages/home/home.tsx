@@ -1,12 +1,13 @@
 import './home.css';
 import Navbar from '../../components/navbar/Navbar';
-import GameMenu from '../../components/menu/Menu';
+import GameMenu from '../../components/menu/menu';
 
 function Home (){
   const menuItems = [
     { id: '1', label: 'Sobre Mim', href: '/about'},
     { id: '2', label: 'Projetos', href: '/projetos' },
     { id: '4', label: 'Experiência', href: '/experiences' },
+    { id: '5', label: 'Estatísticas', href: '/statistics' },
     { id: '3', label: 'Contato', href: '/Contatos' },
   ]
 
