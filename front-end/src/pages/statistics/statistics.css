@@ -1,0 +1,148 @@
+.statistics-page {
+  position: relative;
+  min-height: 100vh;
+  background-color: #050505;
+  color: #d4d4d8;
+  overflow-x: hidden;
+  isolation: isolate;
+}
+
+.statistics-page__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(180, 83, 9, 0.12), transparent 36rem),
+    radial-gradient(ellipse at 20% 70%, rgba(127, 29, 29, 0.1), transparent 34rem),
+    #050505;
+}
+
+.statistics-page__main {
+  position: relative;
+  width: min(100% - 3rem, 72rem);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) 0 5rem;
+}
+
+/* Stat Cards */
+.stat-card {
+  position: relative;
+  padding: 1.5rem;
+  border: 1px solid rgba(161, 161, 170, 0.16);
+  background: linear-gradient(135deg, rgba(24, 24, 27, 0.65), rgba(9, 9, 11, 0.85));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(217, 119, 6, 0.55);
+  background: linear-gradient(135deg, rgba(39, 32, 25, 0.75), rgba(15, 15, 18, 0.92));
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(230, 126, 34, 0.15);
+}
+
+.stat-card__marker {
+  position: absolute;
+  top: -5px;
+  right: 14px;
+  width: 8px;
+  height: 8px;
+  background-color: #991b1b;
+  border: 1px solid rgba(245, 158, 11, 0.8);
+  transform: rotate(45deg);
+}
+
+.stat-card__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  background: rgba(180, 83, 9, 0.1);
+  border-radius: 2px;
+}
+
+/* Painéis de Conteúdo */
+.statistics-panel {
+  position: relative;
+  padding: 1.75rem;
+  border: 1px solid rgba(161, 161, 170, 0.16);
+  background: linear-gradient(135deg, rgba(24, 24, 27, 0.5), rgba(9, 9, 11, 0.75));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 2px;
+}
+
+.statistics-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(230, 126, 34, 0.45), transparent);
+}
+
+/* Barras de Linguagem */
+.language-bar-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  padding: 1px;
+}
+
+.language-bar-fill {
+  height: 100%;
+  border-radius: 1px;
+  transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Itens de Projeto e Editor */
+.stat-list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-list-row:last-child {
+  border-bottom: none;
+}
+
+/* Botões de Toggle de Intervalo */
+.range-btn {
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.range-btn--active {
+  background: rgba(185, 28, 28, 0.85);
+  color: #ffffff;
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 10px rgba(185, 28, 28, 0.4);
+}
+
+.range-btn--inactive {
+  background: transparent;
+  color: #a1a1aa;
+}
+
+.range-btn--inactive:hover {
+  color: #e4e4e7;
+  background: rgba(255, 255, 255, 0.05);
+}
